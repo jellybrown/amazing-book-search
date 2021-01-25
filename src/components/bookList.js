@@ -34,7 +34,8 @@ const BookList = () => {
   return (
     <>
       <div className={classes.root}>
-        {books.map((book) => (
+        {books && console.log(books)}
+        {/* {books.map((book) => (
           //   <li key={book.id}>
           //     <span>이름 {book.name}</span>
           //     <span>가격 {book.price}</span>
@@ -61,7 +62,7 @@ const BookList = () => {
               </Typography>
             </AccordionDetails>
           </Accordion>
-        ))}
+        ))} */}
       </div>
     </>
   );

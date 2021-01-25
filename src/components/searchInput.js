@@ -33,7 +33,7 @@ const SearchInput = () => {
     e.preventDefault();
     console.log(term);
     searchBook(term)
-      .then((response) => console.log(response))
+      .then((response) => setBooks(response.data.items))
       .catch((error) => console.log(error));
   };
 
