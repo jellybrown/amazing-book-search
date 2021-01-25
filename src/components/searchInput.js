@@ -1,3 +1,4 @@
+import axios from "axios";
 import React, { useState } from "react";
 
 const SearchInput = () => {
@@ -7,9 +8,29 @@ const SearchInput = () => {
     console.log(term);
   };
 
+  const searchBook = async (term) => {
+    try {
+      const result = await axios.get("/v1/search/book.json", {
+        headers: {
+          "X-Naver-Client-Id": process.env.REACT_APP_CLIENT_ID,
+          "X-Naver-Client-Secret": process.env.REACT_APP_CLIENT_SECRET,
+        },
+        params: {
+          query: term,
+        },
+      });
+      return result;
+    } catch (error) {
+      console.error(error);
+    }
+  };
+
   const onSearch = (e) => {
     e.preventDefault();
     console.log(term);
+    searchBook(term)
+      .then((response) => console.log(response))
+      .catch((error) => console.log(error));
   };
 
   return (
