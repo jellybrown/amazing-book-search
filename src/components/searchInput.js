@@ -1,8 +1,12 @@
 import axios from "axios";
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
+import { BookContext } from "../bookContext";
 
 const SearchInput = () => {
   const [term, setTerm] = useState("");
+  const [books, setBooks] = useContext(BookContext);
+  console.log(books);
+
   const onChange = (e) => {
     setTerm(e.target.value);
     console.log(term);
