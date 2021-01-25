@@ -1,10 +1,11 @@
-import React from "react";
+import React, { useContext } from "react";
 import { makeStyles } from "@material-ui/core/styles";
 import Accordion from "@material-ui/core/Accordion";
 import AccordionDetails from "@material-ui/core/AccordionDetails";
 import AccordionSummary from "@material-ui/core/AccordionSummary";
 import Typography from "@material-ui/core/Typography";
 import ExpandMoreIcon from "@material-ui/icons/ExpandMore";
+import { BookContext } from "../bookContext";
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -22,23 +23,8 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 const BookList = () => {
-  const books = [
-    {
-      id: 1,
-      name: "첫번째",
-      price: "30,000",
-    },
-    {
-      id: 2,
-      name: "두번째",
-      price: "25,000",
-    },
-    {
-      id: 3,
-      name: "세번째",
-      price: "33,000",
-    },
-  ];
+  const [books, setBooks] = useContext(BookContext);
+
   const classes = useStyles();
   const [expanded, setExpanded] = React.useState(false);
 
@@ -65,7 +51,7 @@ const BookList = () => {
             >
               <Typography className={classes.heading}>책 이미지</Typography>
               <Typography className={classes.secondaryHeading}>
-                {book.name}
+                {book.title}
               </Typography>
             </AccordionSummary>
             <AccordionDetails>
