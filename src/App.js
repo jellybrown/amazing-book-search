@@ -1,14 +1,13 @@
 import logo from "./logo.svg";
 import "./App.css";
-import BookList from "./components/bookList";
-import SearchInput from "./components/searchInput";
+
 import { BookProvider } from "./bookContext";
+import Main from "./components/main";
 
 function App() {
   return (
     <BookProvider>
-      <SearchInput />
-      <BookList />
+      <Main />
     </BookProvider>
   );
 }
