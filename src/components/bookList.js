@@ -36,34 +36,50 @@ const BookList = () => {
       <div className={classes.root}>
         {books?.map((book) => console.log(book))}
 
-        {/* {books.map((book) => (
-          //   <li key={book.id}>
-          //     <span>이름 {book.name}</span>
-          //     <span>가격 {book.price}</span>
-          //   </li>
+        {books?.map((book) => (
           <Accordion
-            key={book.id}
-            expanded={expanded === `panel${book.id}`}
-            onChange={handleChange(`panel${book.id}`)}
+            key={book.isbn}
+            expanded={expanded === `panel${book.isbn}`}
+            onChange={handleChange(`panel${book.isbn}`)}
           >
             <AccordionSummary
               expandIcon={<ExpandMoreIcon />}
               aria-controls="panel1bh-content"
               id="panel1bh-header"
             >
-              <Typography className={classes.heading}>책 이미지</Typography>
+              <Typography className={classes.heading}>
+                <img src={book.image} alt={book.title} />
+              </Typography>
               <Typography className={classes.secondaryHeading}>
-                {book.title}
+                <div>
+                  <ul>
+                    <li>
+                      <span>{book.title}</span>
+                      <span> | </span>
+                      <span>{book.author}</span>
+                    </li>
+                    <li>
+                      <span>가격: {book.discount}</span>
+                    </li>
+                    {/* 가격 문자열 없애고 ,찍기 */}
+                    <li>
+                      <span>출판사: {book.publisher}</span>
+                    </li>
+                    <li>
+                      <span>출간일: {book.pubdate}</span>
+                    </li>
+                  </ul>
+                </div>
               </Typography>
             </AccordionSummary>
             <AccordionDetails>
               <Typography>
-                Nulla facilisi. Phasellus sollicitudin nulla et quam mattis
-                feugiat. Aliquam eget maximus est, id dignissim quam.
+                <p>{book.description}</p>
+                <span>책 정보 자세히 보기 (naver로 연결)</span>
               </Typography>
             </AccordionDetails>
           </Accordion>
-        ))} */}
+        ))}
       </div>
     </>
   );
