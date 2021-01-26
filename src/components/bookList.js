@@ -13,7 +13,7 @@ const useStyles = makeStyles((theme) => ({
   },
   heading: {
     fontSize: theme.typography.pxToRem(15),
-    flexBasis: "33.33%",
+    flexBasis: "20%",
     flexShrink: 0,
   },
   secondaryHeading: {
@@ -61,7 +61,7 @@ const BookList = () => {
                     <li>
                       <span>가격: {book.discount}</span>
                     </li>
-                    {/* 가격 문자열 없애고 ,찍기 */}
+                    {/* 가격 문자열 없애고 콤마찍기 */}
                     <li>
                       <span>출판사: {book.publisher}</span>
                     </li>
@@ -74,7 +74,7 @@ const BookList = () => {
             </AccordionSummary>
             <AccordionDetails>
               <Typography>
-                <p>{book.description}</p>
+                <div>{book.description}</div>
                 <span>책 정보 자세히 보기 (naver로 연결)</span>
               </Typography>
             </AccordionDetails>

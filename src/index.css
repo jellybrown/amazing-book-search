@@ -9,6 +9,15 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
+li {
+  font-family: "Nanum Gothic";
+  list-style: none;
+}
+p,
+span {
+  font-family: "Nanum Gothic";
+}
+
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
