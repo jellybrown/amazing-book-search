@@ -34,7 +34,8 @@ const BookList = () => {
   return (
     <>
       <div className={classes.root}>
-        {books && console.log(books)}
+        {books?.map((book) => console.log(book))}
+
         {/* {books.map((book) => (
           //   <li key={book.id}>
           //     <span>이름 {book.name}</span>
