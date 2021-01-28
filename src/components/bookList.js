@@ -6,6 +6,7 @@ import AccordionSummary from "@material-ui/core/AccordionSummary";
 import Typography from "@material-ui/core/Typography";
 import ExpandMoreIcon from "@material-ui/icons/ExpandMore";
 import { BookContext } from "../bookContext";
+import dayjs from "dayjs";
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -42,6 +43,7 @@ const BookList = () => {
           const filteredTitle = book.title.replace(bTagRegex, "");
           const filteredDesc = book.description.replace(bTagRegex, "");
           const commaPrice = parseInt(book.discount, 10).toLocaleString();
+          const dotPubdate = dayjs(book.pubdate).format("YYYY.MM.DD");
           return (
             <Accordion
               key={book.isbn}
@@ -71,7 +73,7 @@ const BookList = () => {
                         <span>출판사: {book.publisher}</span>
                       </li>
                       <li>
-                        <span>출간일: {book.pubdate}</span>
+                        <span>출간일: {dotPubdate}</span>
                       </li>
                     </ul>
                   </div>
