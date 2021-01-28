@@ -67,7 +67,6 @@ const BookList = () => {
                       <li>
                         <span>{`가격: ${commaPrice}원`}</span>
                       </li>
-                      {/* 가격 문자열 없애고 콤마찍기 */}
                       <li>
                         <span>출판사: {book.publisher}</span>
                       </li>
