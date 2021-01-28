@@ -39,7 +39,9 @@ const BookList = () => {
         {books?.map((book) => console.log(book))}
 
         {books?.map((book) => {
-          const title = book.title.replace(bTagRegex, "");
+          const filteredTitle = book.title.replace(bTagRegex, "");
+          const filteredDesc = book.description.replace(bTagRegex, "");
+          const commaPrice = parseInt(book.discount, 10).toLocaleString();
           return (
             <Accordion
               key={book.isbn}
@@ -58,12 +60,12 @@ const BookList = () => {
                   <div>
                     <ul>
                       <li>
-                        <span>{title}</span>
+                        <span>{filteredTitle}</span>
                         <span> | </span>
                         <span>{book.author}</span>
                       </li>
                       <li>
-                        <span>{`가격: ${book.discount}`}</span>
+                        <span>{`가격: ${commaPrice}원`}</span>
                       </li>
                       {/* 가격 문자열 없애고 콤마찍기 */}
                       <li>
@@ -78,7 +80,7 @@ const BookList = () => {
               </AccordionSummary>
               <AccordionDetails>
                 <Typography>
-                  <div>{book.description}</div>
+                  <div>{filteredDesc}</div>
                   <span>책 정보 자세히 보기 (naver로 연결)</span>
                 </Typography>
               </AccordionDetails>
