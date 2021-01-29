@@ -16,6 +16,9 @@ const useStyles = makeStyles((theme) => ({
     fontSize: theme.typography.pxToRem(15),
     flexBasis: "20%",
     flexShrink: 0,
+    display: "flex",
+    justifyContent: "center",
+    alignItems: "center",
   },
   secondaryHeading: {
     fontSize: theme.typography.pxToRem(15),
@@ -61,8 +64,15 @@ const BookList = () => {
                 <Typography className={classes.secondaryHeading}>
                   <div>
                     <ul>
-                      <li>
-                        <span>{filteredTitle}</span>
+                      <li style={{ marginBottom: "1em" }}>
+                        <span
+                          style={{
+                            fontSize: "1.1rem",
+                            fontWeight: "bold",
+                          }}
+                        >
+                          {filteredTitle}
+                        </span>
                         <span> | </span>
                         <span>{book.author}</span>
                       </li>
@@ -81,8 +91,32 @@ const BookList = () => {
               </AccordionSummary>
               <AccordionDetails>
                 <Typography>
-                  <div>{filteredDesc}</div>
-                  <span>책 정보 자세히 보기 (naver로 연결)</span>
+                  <span
+                    style={{
+                      display: "block",
+                      padding: "1em",
+                      margin: "0 1em",
+                      borderTop: "1px dashed #ddd",
+                    }}
+                  ></span>
+                  <div style={{ padding: "0 1em", fontSize: "0.9rem" }}>
+                    {filteredDesc}
+                  </div>
+                  <a
+                    href={book.link}
+                    target="_blank"
+                    rel="noreferrer"
+                    style={{
+                      fontSize: "0.8em",
+                      display: "block",
+                      textAlign: "right",
+                      margin: "1.5em 1em",
+                      marginRight: "0.5em",
+                      color: "#333",
+                    }}
+                  >
+                    자세히 보기 (naver로 연결)
+                  </a>
                 </Typography>
               </AccordionDetails>
             </Accordion>
