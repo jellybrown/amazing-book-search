@@ -95,8 +95,8 @@ const BookList = () => {
                     style={{
                       display: "block",
                       padding: "1em",
-                      margin: "0 1em",
-                      borderTop: "1px dashed #ddd",
+                      margin: "0 2em",
+                      borderTop: "1px solid #eee",
                     }}
                   ></span>
                   <div style={{ padding: "0 1em", fontSize: "0.9rem" }}>

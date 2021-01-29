@@ -2,6 +2,8 @@ import axios from "axios";
 import React, { useContext, useState } from "react";
 import { BookContext } from "../bookContext";
 import Logo from "./logo";
+import SearchIcon from "@material-ui/icons/Search";
+import { Input, SearchButton } from "../styled/customStyle.js";
 
 const SearchHeader = () => {
   const [term, setTerm] = useState("");
@@ -41,9 +43,20 @@ const SearchHeader = () => {
   return (
     <>
       <Logo />
-      <form onSubmit={onSearch}>
-        <input type="text" name="search" value={term} onChange={onChange} />
-        <button>검색</button>
+      <form
+        onSubmit={onSearch}
+        style={{ position: "relative", width: "80%", margin: "0 auto 2em" }}
+      >
+        <Input
+          type="text"
+          name="search"
+          value={term}
+          onChange={onChange}
+          placeholder="책을 검색하세요."
+        />
+        <SearchButton>
+          <SearchIcon style={{ fontSize: "1.3rem", color: "#a6a6a6" }} />
+        </SearchButton>
       </form>
     </>
   );
