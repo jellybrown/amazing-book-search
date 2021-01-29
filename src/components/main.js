@@ -1,13 +1,13 @@
 import React, { useContext } from "react";
 import { BookContext } from "../bookContext";
 import BookList from "./bookList";
-import SearchInput from "./searchInput";
+import SearchHeader from "./searchHeader";
 
 const Main = () => {
   const [books, setBooks] = useContext(BookContext);
   return (
     <>
-      <SearchInput />
+      <SearchHeader />
       {books?.length > 0 ? <BookList /> : null}
     </>
   );

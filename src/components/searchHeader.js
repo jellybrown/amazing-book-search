@@ -1,8 +1,9 @@
 import axios from "axios";
 import React, { useContext, useState } from "react";
 import { BookContext } from "../bookContext";
+import Logo from "./logo";
 
-const SearchInput = () => {
+const SearchHeader = () => {
   const [term, setTerm] = useState("");
   const [books, setBooks] = useContext(BookContext);
   console.log(books);
@@ -39,7 +40,7 @@ const SearchInput = () => {
 
   return (
     <>
-      <p>Book search</p>
+      <Logo />
       <form onSubmit={onSearch}>
         <input type="text" name="search" value={term} onChange={onChange} />
         <button>검색</button>
@@ -48,4 +49,4 @@ const SearchInput = () => {
   );
 };
 
-export default SearchInput;
+export default SearchHeader;
