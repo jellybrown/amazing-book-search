@@ -61,10 +61,13 @@ const BookList = () => {
                 aria-controls="panel1bh-content"
                 id="panel1bh-header"
               >
-                <Typography className={classes.heading}>
+                <Typography component={"div"} className={classes.heading}>
                   <img src={book.image} alt={book.title} />
                 </Typography>
-                <Typography className={classes.secondaryHeading}>
+                <Typography
+                  component={"div"}
+                  className={classes.secondaryHeading}
+                >
                   <div>
                     <ul>
                       <li style={{ marginBottom: "1em" }}>
@@ -93,7 +96,7 @@ const BookList = () => {
                 </Typography>
               </AccordionSummary>
               <AccordionDetails>
-                <Typography>
+                <Typography component={"div"}>
                   <span
                     style={{
                       display: "block",
