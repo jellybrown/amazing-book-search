@@ -1,23 +1,23 @@
 {
   "files": {
-    "main.css": "/amazing-book-search/static/css/main.53628d11.chunk.css",
-    "main.js": "/amazing-book-search/static/js/main.60ad0388.chunk.js",
-    "main.js.map": "/amazing-book-search/static/js/main.60ad0388.chunk.js.map",
-    "runtime-main.js": "/amazing-book-search/static/js/runtime-main.f7254dea.js",
-    "runtime-main.js.map": "/amazing-book-search/static/js/runtime-main.f7254dea.js.map",
-    "static/js/2.528f13cb.chunk.js": "/amazing-book-search/static/js/2.528f13cb.chunk.js",
-    "static/js/2.528f13cb.chunk.js.map": "/amazing-book-search/static/js/2.528f13cb.chunk.js.map",
-    "static/js/3.a9746708.chunk.js": "/amazing-book-search/static/js/3.a9746708.chunk.js",
-    "static/js/3.a9746708.chunk.js.map": "/amazing-book-search/static/js/3.a9746708.chunk.js.map",
-    "index.html": "/amazing-book-search/index.html",
-    "static/css/main.53628d11.chunk.css.map": "/amazing-book-search/static/css/main.53628d11.chunk.css.map",
-    "static/js/2.528f13cb.chunk.js.LICENSE.txt": "/amazing-book-search/static/js/2.528f13cb.chunk.js.LICENSE.txt",
-    "static/media/logo.6ce24c58.svg": "/amazing-book-search/static/media/logo.6ce24c58.svg"
+    "main.css": "/jellybrown/amazing-book-search/static/css/main.53628d11.chunk.css",
+    "main.js": "/jellybrown/amazing-book-search/static/js/main.f023bdc7.chunk.js",
+    "main.js.map": "/jellybrown/amazing-book-search/static/js/main.f023bdc7.chunk.js.map",
+    "runtime-main.js": "/jellybrown/amazing-book-search/static/js/runtime-main.ce6fdb25.js",
+    "runtime-main.js.map": "/jellybrown/amazing-book-search/static/js/runtime-main.ce6fdb25.js.map",
+    "static/js/2.5f7ec030.chunk.js": "/jellybrown/amazing-book-search/static/js/2.5f7ec030.chunk.js",
+    "static/js/2.5f7ec030.chunk.js.map": "/jellybrown/amazing-book-search/static/js/2.5f7ec030.chunk.js.map",
+    "static/js/3.a9746708.chunk.js": "/jellybrown/amazing-book-search/static/js/3.a9746708.chunk.js",
+    "static/js/3.a9746708.chunk.js.map": "/jellybrown/amazing-book-search/static/js/3.a9746708.chunk.js.map",
+    "index.html": "/jellybrown/amazing-book-search/index.html",
+    "static/css/main.53628d11.chunk.css.map": "/jellybrown/amazing-book-search/static/css/main.53628d11.chunk.css.map",
+    "static/js/2.5f7ec030.chunk.js.LICENSE.txt": "/jellybrown/amazing-book-search/static/js/2.5f7ec030.chunk.js.LICENSE.txt",
+    "static/media/logo.6ce24c58.svg": "/jellybrown/amazing-book-search/static/media/logo.6ce24c58.svg"
   },
   "entrypoints": [
-    "static/js/runtime-main.f7254dea.js",
-    "static/js/2.528f13cb.chunk.js",
+    "static/js/runtime-main.ce6fdb25.js",
+    "static/js/2.5f7ec030.chunk.js",
     "static/css/main.53628d11.chunk.css",
-    "static/js/main.60ad0388.chunk.js"
+    "static/js/main.f023bdc7.chunk.js"
   ]
 }
