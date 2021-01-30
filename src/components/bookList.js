@@ -1,4 +1,4 @@
-import React, { useContext, useEffect } from "react";
+import React, { useCallback, useContext, useState } from "react";
 import { makeStyles } from "@material-ui/core/styles";
 import Accordion from "@material-ui/core/Accordion";
 import AccordionDetails from "@material-ui/core/AccordionDetails";
@@ -31,19 +31,22 @@ const BookList = () => {
   const [books, setBooks] = useContext(BookContext);
 
   const classes = useStyles();
-  const [expanded, setExpanded] = React.useState(false);
+  const [expanded, setExpanded] = useState(false);
 
-  const handleChange = (panel) => (event, isExpanded) => {
-    setExpanded(isExpanded ? panel : false);
-  };
+  const handleChange = useCallback(
+    (panel) => (event, isExpanded) => {
+      setExpanded(isExpanded ? panel : false);
+    },
+    []
+  );
 
   return (
     <>
       <div className={classes.root}>
-        {books?.map((book) => console.log(book))}
-
         {books?.map((book) => {
           const filteredTitle = book.title.replace(bTagRegex, "");
+          const filteredAuthor = book.author.replace(bTagRegex, "");
+          const filteredPublisher = book.publisher.replace(bTagRegex, "");
           const filteredDesc = book.description.replace(bTagRegex, "");
           const commaPrice = parseInt(book.discount, 10).toLocaleString();
           const dotPubdate = dayjs(book.pubdate).format("YYYY.MM.DD");
@@ -74,13 +77,13 @@ const BookList = () => {
                           {filteredTitle}
                         </span>
                         <span> | </span>
-                        <span>{book.author}</span>
+                        <span>{filteredAuthor}</span>
                       </li>
                       <li>
                         <span>{`가격: ${commaPrice}원`}</span>
                       </li>
                       <li>
-                        <span>출판사: {book.publisher}</span>
+                        <span>출판사: {filteredPublisher}</span>
                       </li>
                       <li>
                         <span>출간일: {dotPubdate}</span>

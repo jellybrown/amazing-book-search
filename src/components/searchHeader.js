@@ -1,18 +1,16 @@
 import axios from "axios";
-import React, { useContext, useState } from "react";
+import React, { memo, useContext, useState } from "react";
 import { BookContext } from "../bookContext";
 import Logo from "./logo";
 import SearchIcon from "@material-ui/icons/Search";
 import { Input, SearchButton } from "../styled/customStyle.js";
 
-const SearchHeader = () => {
+const SearchHeader = memo((props) => {
   const [term, setTerm] = useState("");
   const [books, setBooks] = useContext(BookContext);
-  console.log(books);
 
   const onChange = (e) => {
     setTerm(e.target.value);
-    console.log(term);
   };
 
   const searchBook = async (term) => {
@@ -34,7 +32,7 @@ const SearchHeader = () => {
 
   const onSearch = (e) => {
     e.preventDefault();
-    console.log(term);
+
     searchBook(term)
       .then((response) => setBooks(response.data.items))
       .catch((error) => console.log(error));
@@ -60,6 +58,6 @@ const SearchHeader = () => {
       </form>
     </>
   );
-};
+});
 
 export default SearchHeader;

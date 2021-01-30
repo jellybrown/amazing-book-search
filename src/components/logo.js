@@ -1,9 +1,9 @@
-import React from "react";
+import React, { memo } from "react";
 
-const Logo = () => {
+const Logo = memo((props) => {
   return (
     <div style={{ textAlign: "center", padding: "2em 0" }}>
-      <a style={{ textDecoration: "none" }} href="http://fsdfsd">
+      <a style={{ textDecoration: "none" }} href="#a">
         <span style={{ fontSize: "2rem", fontWeight: "800", color: "#333" }}>
           Book
         </span>
@@ -11,6 +11,6 @@ const Logo = () => {
       </a>
     </div>
   );
-};
+});
 
 export default Logo;
