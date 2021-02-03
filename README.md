@@ -17,7 +17,29 @@
 
 <br>
 
-## ❗️ 프로젝트 기능
+## ❗️ 사용된 기술 & 라이브러리
+
+<br>
+
+### - React (Create-React-App)
+
+### - Context api : 상태 관리
+
+### - Naver api + axios : 검색
+
+### - Design library (material-ui) : 검색 리스트
+
+### - Styled-component : scss처럼 활용
+
+### - Day.js : 날짜형식 변경
+
+  <br>
+
+---
+
+<br>
+
+## ❗️ 프로젝트 구현
 
 <br>
 
@@ -154,36 +176,3 @@ const dotPubdate = dayjs(book.pubdate).format("YYYY.MM.DD");
 <br>
 
 <br>
-
----
-
-<br>
-
-## ❗️ 사용된 기술 & 라이브러리
-
-<br>
-
-### 1. React (Create-React-App)
-
-- virtual DOM을 이용해 상태를 비교하고 렌더링을 하는 react를 이용했습니다.
-
-### 2. Context api
-
-- 간단한 비동기 작업이라 context api를 이용했습니다.
-
-### 3. Naver api + axios
-
-- 책 검색기능을 위해 사용했습니다.
-
-### 4. Design library (material-ui)
-
-- html과 css에 많은 시간이 걸리지 않도록 디자인 라이브러리를 이용했습니다.
-
-### 5. Styled-component
-
-- placeholder나 hover와 같은 속성을 간단히 지정하기 위해(scss처럼) 사용했습니다.
-
-### 6. Day.js
-
-- 출간일의 YYYYMMDD는 날짜구분이 되지않아서 구분을 위해 이용했습니다.
-  <br>
