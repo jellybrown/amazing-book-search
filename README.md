@@ -25,7 +25,7 @@
 
 <br>
 
-- 책 검색 내용을 배열로 저장하고, 다른 컴포넌트에서 렌더링 할 수 있도록 context에 저장했습니다.
+- 책 검색 내용을 다른 컴포넌트에서 렌더링 할 수 있도록 배열로 context에 저장했습니다.
 
 ```js
 // SeachHeader 컴포넌트
@@ -67,6 +67,8 @@ const BookList = () => {
 <br>
 
 ### 2. Naver api를 이용한 검색 서비스
+
+<br>
 
 - axios를 이용해서 검색기능을 구현했습니다.
 
@@ -161,7 +163,7 @@ const dotPubdate = dayjs(book.pubdate).format("YYYY.MM.DD");
 
 <br>
 
-### 1. React (Creacte-React-App)
+### 1. React (Create-React-App)
 
 - virtual DOM을 이용해 상태를 비교하고 렌더링을 하는 react를 이용했습니다.
 
