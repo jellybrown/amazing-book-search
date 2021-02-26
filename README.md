@@ -6,10 +6,8 @@
 
 <br>
 
-인터넷에서 책을 고를 때, 목차나 요약 내용을 보게 됩니다.<br>
-이 어플리케이션은 기존 인터넷서점과 다르게 펼침 기능으로 요약 내용을 보여줍니다.<br>
-상세 페이지로 들어가는 시간을 절약해 사용자의 편의성을 높여주고, <br>
-실제로 구매할 수 있다면 구매 효과도 올릴 수 있지않을까 생각됩니다. <br>
+- 기존의 도서 구매 사이트보다 편리한 서비스 제작
+- 사용자의 구매 욕구 상승
 
 <br>
 
@@ -21,7 +19,7 @@
 
 <br>
 
-### 2021.01.21 ~ 2021.01.30 (1인)
+- 2021.01.21 ~ 2021.01.30 (1인)
 
 <br>
 
@@ -29,17 +27,17 @@
 
 <br>
 
-### - React (Create-React-App)
+- React (Create-React-App)
 
-### - Context api : 상태 관리
+- Context api : 상태 관리
 
-### - Naver api + axios : 검색
+- Naver api + axios : 검색
 
-### - Design library (material-ui) : 검색 리스트
+- Design library (material-ui) : 검색 리스트
 
-### - Styled-component : scss처럼 활용
+- Styled-component : scss처럼 활용
 
-### - Day.js : 날짜형식 변경
+- Day.js : 날짜형식 변경
 
   <br>
 
@@ -51,7 +49,7 @@
 
 <br>
 
-### 1. Context api를 이용한 상태관리
+### 1. context api를 이용한 상태관리
 
 <br>
 
@@ -96,24 +94,33 @@ const BookList = () => {
 
 <br>
 
-### 2. Naver api를 이용한 검색 서비스
+### 2. open api를 이용한 검색 서비스
 
 <br>
 
-- axios를 이용해서 검색기능을 구현했습니다.
+- naver에서 제공하는 api를 이용해서 검색기능을 구현했습니다.
 
 ```js
+const instance = axios.create({
+  headers: {
+    "X-Naver-Client-Id": process.env.REACT_APP_CLIENT_ID,
+    "X-Naver-Client-Secret": process.env.REACT_APP_CLIENT_SECRET,
+  },
+});
+
+const searchBookByQuery = (term) => {
+  return axios.get("/v1/search/book.json", {
+    params: {
+      query: term,
+    },
+  });
+};
+
+// searchBook: 검색시 실행되는 함수
+
 const searchBook = async (term) => {
   try {
-    const result = await axios.get("/v1/search/book.json", {
-      headers: {
-        "X-Naver-Client-Id": process.env.REACT_APP_CLIENT_ID,
-        "X-Naver-Client-Secret": process.env.REACT_APP_CLIENT_SECRET,
-      },
-      params: {
-        query: term,
-      },
-    });
+    const result = await searchBookyByQuery(term);
     return result;
   } catch (error) {
     console.error(error);
@@ -129,9 +136,9 @@ const searchBook = async (term) => {
 // BookList 컴포넌트
 
 const bTagRegex = /<\/?b[^>]*?>/gi;
-...
+
 return (
-    ...
+    // ...
           const filteredTitle = book.title.replace(bTagRegex, "");
           const filteredAuthor = book.author.replace(bTagRegex, "");
           const filteredPublisher = book.publisher.replace(bTagRegex, "");
@@ -142,7 +149,7 @@ return (
 
 <br>
 
-- Day.js를 이용하여 날짜형식을 변경했습니다. (YYYYMMDD -> YYYY.MM.DD)
+- Day.js를 이용하여 날짜 형식을 변경했습니다. (YYYYMMDD -> YYYY.MM.DD)
 
 ```js
 // BookList 컴포넌트
