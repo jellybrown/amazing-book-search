@@ -163,6 +163,14 @@ const dotPubdate = dayjs(book.pubdate).format("YYYY.MM.DD");
 
 <br>
 
+## ❗️ 링크
+
+<br>
+
+<a href="http://125.176.40.12:9090/">구경하러 가기</a>
+
+<br>
+
 ## ❗️ 프로젝트 결과화면
 
 <br>
