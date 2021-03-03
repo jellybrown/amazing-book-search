@@ -108,7 +108,7 @@ const instance = axios.create({
 });
 
 const searchBookByQuery = (term) => {
-  return axios.get("/v1/search/book.json", {
+  return instance.get("/v1/search/book.json", {
     params: {
       query: term,
     },
@@ -116,7 +116,6 @@ const searchBookByQuery = (term) => {
 };
 
 // searchBook: 검색시 실행되는 함수
-
 const searchBook = async (term) => {
   try {
     const result = await searchBookyByQuery(term);
@@ -129,32 +128,47 @@ const searchBook = async (term) => {
 
 <br>
 
-- 가져온 데이터를 \<b>태그를 없애기 위해 정규표현식을 이용하고, 가격에는 콤마를 붙였습니다.
+- 가져온 데이터를 가공하여 렌더링 했습니다.
 
 ```js
 // BookList 컴포넌트
 
 const bTagRegex = /<\/?b[^>]*?>/gi;
 
-return (
-    // ...
-          const filteredTitle = book.title.replace(bTagRegex, "");
-          const filteredAuthor = book.author.replace(bTagRegex, "");
-          const filteredPublisher = book.publisher.replace(bTagRegex, "");
-          const filteredDesc = book.description.replace(bTagRegex, "");
-          const commaPrice = parseInt(book.discount, 10).toLocaleString();
-)
+// 매개변수로 받은 data를 가공하여 return하는 filter 함수
+const filter = (bookData) => {
+  const title = bookData.title.replace(bTagRegex, "");
+  //...
+  const price = parseInt(bookData.discount, 10).toLocaleString();
+  const pubdate = dayjs(bookData.pubdate).format("YYYY.MM.DD");
+  return {
+    title,
+    author,
+    publisher,
+    desc,
+    price,
+    pubdate,
+  };
+};
+```
+
+```js
+// filter함수를 이용해서 받아온 data를 렌더링
+  return (
+    ...
+      {books?.map((book) => {
+          const filteredData = filter(book);
+
+          return (
+          //...
+          <span>{filteredData.author}</span>
+          //...
+      }
+  )
+
 ```
 
 <br>
-
-- Day.js를 이용하여 날짜 형식을 변경했습니다. (YYYYMMDD -> YYYY.MM.DD)
-
-```js
-// BookList 컴포넌트
-
-const dotPubdate = dayjs(book.pubdate).format("YYYY.MM.DD");
-```
 
 <br>
 
