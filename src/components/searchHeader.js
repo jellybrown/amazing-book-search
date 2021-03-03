@@ -13,17 +13,24 @@ const SearchHeader = memo((props) => {
     setTerm(e.target.value);
   };
 
+  const instance = axios.create({
+    headers: {
+      "X-Naver-Client-Id": process.env.REACT_APP_CLIENT_ID,
+      "X-Naver-Client-Secret": process.env.REACT_APP_CLIENT_SECRET,
+    },
+  });
+
+  const searchBookByQuery = (term) => {
+    return instance.get("/v1/search/book.json", {
+      params: {
+        query: term,
+      },
+    });
+  };
+
   const searchBook = async (term) => {
     try {
-      const result = await axios.get("/v1/search/book.json", {
-        headers: {
-          "X-Naver-Client-Id": process.env.REACT_APP_CLIENT_ID,
-          "X-Naver-Client-Secret": process.env.REACT_APP_CLIENT_SECRET,
-        },
-        params: {
-          query: term,
-        },
-      });
+      const result = await searchBookByQuery(term);
       return result;
     } catch (error) {
       console.error(error);
