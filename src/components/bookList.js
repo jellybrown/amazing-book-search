@@ -40,16 +40,28 @@ const BookList = () => {
     []
   );
 
+  const filter = (bookData) => {
+    const title = bookData.title.replace(bTagRegex, "");
+    const author = bookData.author.replace(bTagRegex, "");
+    const publisher = bookData.publisher.replace(bTagRegex, "");
+    const desc = bookData.description.replace(bTagRegex, "");
+    const price = parseInt(bookData.discount, 10).toLocaleString();
+    const pubdate = dayjs(bookData.pubdate).format("YYYY.MM.DD");
+    return {
+      title,
+      author,
+      publisher,
+      desc,
+      price,
+      pubdate,
+    };
+  };
+
   return (
     <>
       <div className={classes.root}>
         {books?.map((book) => {
-          const filteredTitle = book.title.replace(bTagRegex, "");
-          const filteredAuthor = book.author.replace(bTagRegex, "");
-          const filteredPublisher = book.publisher.replace(bTagRegex, "");
-          const filteredDesc = book.description.replace(bTagRegex, "");
-          const commaPrice = parseInt(book.discount, 10).toLocaleString();
-          const dotPubdate = dayjs(book.pubdate).format("YYYY.MM.DD");
+          const filteredData = filter(book);
           return (
             <Accordion
               key={book.isbn}
@@ -77,19 +89,19 @@ const BookList = () => {
                             fontWeight: "bold",
                           }}
                         >
-                          {filteredTitle}
+                          {filteredData.title}
                         </span>
                         <span> | </span>
-                        <span>{filteredAuthor}</span>
+                        <span>{filteredData.author}</span>
                       </li>
                       <li>
-                        <span>{`가격: ${commaPrice}원`}</span>
+                        <span>{`가격: ${filteredData.price}원`}</span>
                       </li>
                       <li>
-                        <span>출판사: {filteredPublisher}</span>
+                        <span>출판사: {filteredData.publisher}</span>
                       </li>
                       <li>
-                        <span>출간일: {dotPubdate}</span>
+                        <span>출간일: {filteredData.pubdate}</span>
                       </li>
                     </ul>
                   </div>
@@ -106,7 +118,7 @@ const BookList = () => {
                     }}
                   ></span>
                   <div style={{ padding: "0 1em", fontSize: "0.9rem" }}>
-                    {filteredDesc}
+                    {filteredData.desc}
                   </div>
                   <a
                     href={book.link}
