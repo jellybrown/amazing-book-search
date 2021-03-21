@@ -1,7 +1,7 @@
 import axios from "axios";
 import React, { memo, useContext, useState } from "react";
 import { BookContext } from "../bookContext";
-import Logo from "./logo";
+import Logo from "./Logo";
 import SearchIcon from "@material-ui/icons/Search";
 import { Input, SearchButton } from "../styled/customStyle.js";
 

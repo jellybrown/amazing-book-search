@@ -1,7 +1,7 @@
 import React, { useContext } from "react";
 import { BookContext } from "../bookContext";
-import BookList from "./bookList";
-import SearchHeader from "./searchHeader";
+import BookList from "./BookList";
+import SearchHeader from "./SearchHeader";
 
 const Main = () => {
   const [books, setBooks] = useContext(BookContext);
