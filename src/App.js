@@ -1,6 +1,3 @@
-import logo from "./logo.svg";
-import "./App.css";
-
 import { BookProvider } from "./bookContext";
 import Main from "./components/main";
 
